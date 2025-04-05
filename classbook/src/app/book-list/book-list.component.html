@@ -1,0 +1,20 @@
+<div class="p-6">
+  <h1 class="text-2xl font-bold mb-4">📚 Biblioteca de Livros</h1>
+
+
+  <div class="mb-6">
+    <label class="block mb-2 font-medium">Filtrar por categoria:</label>
+    <select [(ngModel)]="categoriaSelecionada" class="border rounded-md p-2 w-full max-w-xs">
+      <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+    </select>
+  </div>
+
+ 
+  <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <div *ngFor="let book of livrosFiltrados" class="bg-white shadow-md rounded-xl p-4 border hover:shadow-lg transition">
+      <h2 class="text-xl font-semibold">{{ book.name }}</h2>
+      <p class="text-gray-600">Categoria: {{ book.category }}</p>
+      <a [href]="book.url" target="_blank" class="text-blue-500 underline mt-2 inline-block">Ler livro</a>
+    </div>
+  </div>
+</div>
